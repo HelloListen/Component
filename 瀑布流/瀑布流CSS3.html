@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流CSS3</title>
+    <style>
+        #main{
+            -webkit-column-width: 202px;
+            -moz-column-width: 202px;
+            column-width: 202px;
+            /*-webkit-column-count: 5;
+            -moz-column-count: 5;
+            column-count: 5;*/
+            column-rule: 2px dashed #f00;
+            -moz-column-rule: 2px dashed #f00;
+            -webkit-column-rule: 2px dashed #f00;
+            -o-column-rule:2px dashed #f00;
+            -webkit-column-gap: 5px;
+            -moz-column-gap: 5px;
+            column-gap: 5px;
+        }
+        .box{
+            padding:10px 0 0 15px;
+        }
+        .pic{
+            padding: 10px;
+            border: 1px solid #cccccc;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 0 5px #ccc;
+            -moz-box-shadow: 0 0 5px #ccc;
+            box-shadow: 0 0 5px #ccc;
+            width: 165px;
+        }
+        .pic img{
+            display: block;
+            width: 165px;
+            height: auto;
+        }
+    </style>
+    <script src="../../library/jquery-1.11.3.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            var dataInt={"data":[{"src":"images/P_00.jpg"},{"src":"images/P_01.jpg"},{"src":"images/P_02.jpg"},{"src":"images/P_03.jpg"},{"src":"images/P_04.jpg"}]};
+            window.onscroll=function(){
+                if(checkRoll){
+                    for(var i=0;i<dataInt.data.length;i++){
+                        var main=document.getElementById("main");
+                        var oBoxs=document.createElement("div");
+                        oBoxs.className="box";
+                        var oPic=document.createElement("div");
+                        oPic.className="pic";
+                        oBoxs.appendChild(oPic);
+                        main.appendChild(oBoxs);
+                        var img=document.createElement("img");
+                        img.src=dataInt.data[i].src;
+                        oPic.appendChild(img);
+                    }
+                    //waterfall("main","box");
+                }
+            }
+
+        }
+        /*function waterfall(parent,box){
+            var oParent=document.getElementById(parent);
+            var oBoxs=document.getElementsByClassName(box);
+            var cols=Math.floor(document.documentElement.clientWidth/oBoxs[0].offsetWidth);
+            var hArr=new Array();
+            for(var i=0;i<oBoxs.length;i++){
+
+            }
+        }*/
+
+        function checkRoll(){
+            var oParent=document.getElementById("main");
+            var oBox=oParent.getElementsByClassName("box");
+            var lastBoxH=oBox[oBox.length-1].offsetTop+Math.floor(oBox[oBox.length-1].offsetHeight/2);
+            var h=document.documentElement.clientHeight||document.body.clientHeight;
+            var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+            return (lastBoxH<h+scrollTop)?true:false;
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_00.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_01.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_02.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_03.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_04.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_05.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_06.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_07.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_08.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_09.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_010.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_011.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_012.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_013.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_014.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_015.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_016.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_017.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_018.jpg" />
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="images/P_019.jpg" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
